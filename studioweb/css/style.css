@@ -7,15 +7,18 @@ body {
 .font-display {
     font-family: 'Oswald', sans-serif;
 }
-
 /* Continuous scrolling animation for the gallery */
 .marquee-container {
     animation: scroll 20s linear infinite;
+    /* This tells the phone's graphics chip to handle the animation, making it smoother */
+    will-change: transform; 
 }
 
-/* Pause the scrolling when a user hovers over the images */
-.marquee-container:hover {
-    animation-play-state: paused;
+/* ONLY pause on hover if the device uses a mouse (desktops/laptops) */
+@media (hover: hover) {
+    .marquee-container:hover {
+        animation-play-state: paused;
+    }
 }
 
 @keyframes scroll {
